@@ -1,196 +1,190 @@
-# E-Commerce Backend API (Spring Boot)
+E-Commerce Backend API (Spring Boot)
+Overview
 
-## Overview
+This project is a RESTful backend API for an E-Commerce platform built using Spring Boot. It provides secure and scalable APIs for managing users, products, carts, orders, reviews, and ratings.
 
-This project is a backend REST API for an **E-Commerce platform** built using **Spring Boot**.
-The system provides APIs for managing users, products, carts, orders, and reviews.
+The application is designed using a layered architecture to ensure clean code organization, better maintainability, and clear separation of concerns.
 
-The application follows a **layered architecture** to maintain clean code structure and scalability.
-
-Architecture used in the project:
-
+Architecture
 Controller → Service → Repository → Database
 
-This design helps separate business logic from API logic and database operations.
+This architecture helps separate:
 
----
+API handling logic
 
-## Tech Stack
+business logic
 
-Backend Framework
+data access logic
 
-* Java
-* Spring Boot
+Tech Stack
+Backend
+
+Java
+
+Spring Boot
 
 Security
 
-* Spring Security
-* JWT (JSON Web Token) Authentication
+Spring Security
+
+JWT Authentication
 
 Database
 
-* MySQL
-* Spring Data JPA / Hibernate
+MySQL
+
+Spring Data JPA / Hibernate
 
 Build Tool
 
-* Maven
+Maven
 
 Testing
 
-* JUnit
+JUnit
 
----
+Features
+Authentication & Authorization
 
-## Features
+User registration
 
-### Authentication & Authorization
+User login
 
-* User registration
-* User login
-* JWT based authentication
-* Secure API endpoints
+JWT-based authentication
 
-### Product Management
+Secured API endpoints
 
-* Create new products
-* View product list
-* Update product details
-* Product categorization
+Role-based access support for admin and users
 
-### Cart System
+Product Management
 
-* Add product to cart
-* Update cart item quantity
-* Remove items from cart
-* View cart details
+Create new products
 
-### Order Management
+View all products
 
-* Create orders from cart
-* View order history
-* Manage order details
+Update product details
 
-### Reviews & Ratings
+Categorize products
 
-* Add product review
-* Add product rating
-* View product feedback
+Manage products from admin side
 
----
+Cart System
 
-## Project Structure
+Add products to cart
 
+Update cart item quantity
+
+Remove items from cart
+
+View complete cart details
+
+Order Management
+
+Create orders from cart
+
+View order history
+
+Manage order details
+
+Admin order handling
+
+Reviews & Ratings
+
+Add product reviews
+
+Add product ratings
+
+View customer feedback for products
+
+Project Structure
 src/main/java/com/example/ecommerce
-
-config
-Application configuration and JWT security setup.
-
-controller
-Handles HTTP requests and API endpoints.
-
-service
-Contains business logic and service implementations.
-
-repository
-Interfaces responsible for database operations using Spring Data JPA.
-
-model
-Entity classes representing database tables.
-
-request
-DTO classes used for incoming API request payloads.
-
-response
-DTO classes used for structured API responses.
-
-exception
-Custom exception handling classes.
-
----
-
-## Example API Endpoints
-
+│
+├── config       # Application configuration and JWT security setup
+├── controller   # REST API controllers
+├── service      # Business logic layer
+├── repository   # Database access layer using Spring Data JPA
+├── model        # Entity classes mapped to database tables
+├── request      # DTOs for incoming request payloads
+├── response     # DTOs for outgoing API responses
+└── exception    # Global and custom exception handling
+Example API Endpoints
 Authentication
 
 POST /auth/register
+
 POST /auth/login
 
 Products
 
 GET /products
+
 POST /admin/products
+
 PUT /admin/products/{id}
 
 Cart
 
 GET /cart
+
 POST /cart/add
+
 DELETE /cart/remove
 
 Orders
 
 POST /orders
+
 GET /orders
 
-Reviews
+Reviews & Ratings
 
 POST /reviews
+
 POST /ratings
 
----
+Database Configuration
 
-## Database Configuration
+The application uses MySQL for persistent storage.
 
-The application uses **MySQL** for persistent storage.
-
-Example configuration in `application.properties`:
+Example configuration in application.properties:
 
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce
 spring.datasource.username=your_username
 spring.datasource.password=your_password
-
----
-
-## How to Run the Project
-
+How to Run the Project
 1. Clone the repository
-
 git clone https://github.com/your-username/ecommerce-backend.git
-
 2. Navigate to the project directory
-
 cd ecommerce-backend
+3. Configure the database
 
-3. Configure the database in
+Update the database credentials in:
 
 src/main/resources/application.properties
-
 4. Run the application
-
 ./mvnw spring-boot:run
 
-Or run the `EcommerceApplication.java` file directly from IntelliJ.
+Or run the EcommerceApplication.java file directly from your IDE.
 
----
+Future Improvements
 
-## Future Improvements
+Payment gateway integration
 
-* Payment gateway integration
-* Admin dashboard
-* Inventory management
-* API documentation using Swagger
-* Frontend integration (React / Angular)
+Inventory management
 
----
+API documentation with Swagger / OpenAPI
 
-## Author
+Admin dashboard for analytics and management
+
+Frontend integration with React or Angular
+
+Deployment using Docker and cloud platforms
+
+Author
 
 Anurag Sharma
-B.Tech Computer Science Engineering
+B.Tech – Computer Science Engineering
 
----
+License
 
-## License
-
-This project is created for learning and demonstration purposes.
+This project is created for learning, practice, and demonstration purposes.
